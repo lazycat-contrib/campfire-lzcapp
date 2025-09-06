@@ -1,0 +1,53 @@
+params:
+    - id: enable_custom_domain
+      type: bool
+      name: "Enable Custom Domain"
+      description: "Whether to enable custom domain,if false,use lazycat provided domain(not with https:// or http://)"
+      default_value: false
+
+    - id: custom_domain
+      type: string
+      name: "Custom Domain"
+      description: "Custom domain for the application"
+      default_value: ""
+      optional: true
+
+    - id: vapi_public_key
+      type: string
+      name: "VAPID Public Key"
+      description: "VAPID Public Key"
+      default_value: "BPpI5uuvCWArmATkvt4ylQMPJpBnrFRspnUC3oM0oEdAKHuFpqs_vyRNJfjNGHr68rbXBjXZ_gzl9WgXcapeiDw="
+
+    - id: vapi_private_key
+      type: string
+      name: "VAPID Private Key"
+      description: "set these to a valid keypair to allow sending Web Push notifications.a pair of keys will be generated and show in logs when app start，you can copy and replace the default value"
+      default_value: "2T2wM8Q-kmnJsdi67um7nFBhGGsGMWRD1KmLvOqd9lw="
+
+    - id: sentry_dsn
+      type: string
+      name: "Sentry DSN"
+      description: "to enable error reporting to sentry in production, supply your DSN here"
+      optional: true
+
+locales:
+    zh:
+        enable_custom_domain:
+            name: "启用自定义域名"
+            description: "是否启用自定义域名，如果为false，则使用懒猫微服提供的域名"
+
+        custom_domain:
+            name: "自定义域名"
+            description: "应用程序的自定义域名(不带https:// 或 http://)"
+
+        vapi_public_key:
+            name: "VAPID Public Key"
+            description: "设置有效的密钥对以允许发送 Web Push 通知.一组密钥将由应用程序在启动时生成并日志显示，您可以复制并在此处替换。"
+
+        vapi_private_key:
+            name: "VAPID Private Key"
+            description: "设置有效的密钥对以允许发送 Web Push 通知.一组密钥将由应用程序在启动时生成并在日志显示，您可以复制并在此处替换。"
+
+        sentry_dsn:
+            name: "Sentry DSN"
+            description: "若要在生产环境中启用向 Sentry 发送错误报告，请在此处提供您的 DSN"

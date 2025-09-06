@@ -1,0 +1,49 @@
+name: Campfire
+package: lazycat.coummunity.app.once-campfire
+version: 0.1.0
+min_os_version: 1.3.8
+description: Campfire is web-based chat application
+homepage: https://github.com/basecamp/once-campfire
+author: basecamp
+application:
+    subdomain: once-campfire
+
+    public_path:
+        - /
+    upstreams:
+        - location: /
+          backend: http://once-campfire:80
+
+services:
+    once-campfire:
+        # ghcr.io/basecamp/once-campfire:main
+        image: registry.lazycat.cloud/czyt/basecamp/once-campfire:18a4eca9f3c5f4e9
+        user: root
+        environment:
+            - SECRET_KEY_BASE={{stable_secret "campfire#secret_key"}}
+            - VAPID_PUBLIC_KEY={{.U.vapi_public_key}}
+            - VAPID_PRIVATE_KEY={{.U.vapi_private_key}}
+            - SENTRY_DSN={{.U.sentry_dsn}}
+{{if .U.enable_custom_domain}}
+            - SSL_DOMAIN={{.U.custom_domain}}
+{{else}}
+            - SSL_DOMAIN={{.S.AppDomain}}
+{{end}}
+        entrypoint: ""
+        command: /lzcapp/pkg/content/startup.sh
+        binds:
+            - /lzcapp/var/storage:/rails/storage
+
+locales:
+    zh:
+        name: "篝火"
+        description: "篝火是一款基于网页的聊天应用"
+    zh_CN:
+        name: "篝火"
+        description: "篝火是一款基于网页的聊天应用"
+    en:
+        name: "Campfire"
+        description: "Campfire is a web-based chat application from basecamp"
+    ja:
+        name: "キャンプファイアー"
+        description: "キャンプファイアーはウェブベースのチャットアプリケーションです"
