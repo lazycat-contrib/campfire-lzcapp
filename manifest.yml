@@ -1,6 +1,6 @@
 name: Campfire
 package: lazycat.coummunity.app.once-campfire
-version: 1.3.0
+version: 1.4.2
 min_os_version: 1.3.8
 description: Campfire is web-based chat application
 homepage: https://github.com/basecamp/once-campfire
@@ -17,7 +17,7 @@ application:
 services:
     once-campfire:
         # ghcr.io/basecamp/once-campfire:main
-        image: registry.lazycat.cloud/czyt/basecamp/once-campfire:1f2c7d5fa85b4eff
+        image: registry.lazycat.cloud/czyt/basecamp/once-campfire:8adb2578fe055c7a
         user: root
         environment:
             - SECRET_KEY_BASE={{stable_secret "campfire#secret_key"}}
