@@ -1,0 +1,21 @@
+package: lazycat.coummunity.app.once-campfire
+version: 1.4.3
+name: Campfire
+description: Campfire is web-based chat application
+min_os_version: 1.5.0
+homepage: https://github.com/basecamp/once-campfire
+author: basecamp
+
+locales:
+  zh:
+    name: "篝火"
+    description: "篝火是一款基于网页的聊天应用"
+  zh_CN:
+    name: "篝火"
+    description: "篝火是一款基于网页的聊天应用"
+  en:
+    name: "Campfire"
+    description: "Campfire is a web-based chat application from basecamp"
+  ja:
+    name: "キャンプファイアー"
+    description: "キャンプファイアーはウェブベースのチャットアプリケーションです"
