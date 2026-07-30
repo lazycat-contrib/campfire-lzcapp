@@ -1,27 +1,27 @@
 application:
-    subdomain: once-campfire
-    public_path:
-        - /
-    upstreams:
-        - location: /
-          backend: http://once-campfire:80
-
+  subdomain: once-campfire
+  public_path:
+    - /
+  upstreams:
+    - location: /
+      backend: http://once-campfire:80
 services:
-    once-campfire:
-        # ghcr.io/basecamp/once-campfire:v1.4.3
-        image: registry.lazycat.cloud/czyt/basecamp/once-campfire:2acdaf37a3d15702
-        user: root
-        environment:
-            - SECRET_KEY_BASE={{stable_secret "campfire#secret_key"}}
-            - VAPID_PUBLIC_KEY={{.U.vapi_public_key}}
-            - VAPID_PRIVATE_KEY={{.U.vapi_private_key}}
-            - SENTRY_DSN={{.U.sentry_dsn}}
+  once-campfire:
+    # ghcr.io/basecamp/once-campfire:v1.4.3
+    # upstream: ghcr.io/basecamp/once-campfire:v1.4.6
+    image: registry.lazycat.cloud/czyt/basecamp/once-campfire:6138d60712b6716f
+    user: root
+    environment:
+      - SECRET_KEY_BASE={{stable_secret "campfire#secret_key"}}
+      - VAPID_PUBLIC_KEY={{.U.vapi_public_key}}
+      - VAPID_PRIVATE_KEY={{.U.vapi_private_key}}
+      - SENTRY_DSN={{.U.sentry_dsn}}
 {{if .U.enable_custom_domain}}
-            - SSL_DOMAIN={{.U.custom_domain}}
+      - SSL_DOMAIN={{.U.custom_domain}}
 {{else}}
-            - SSL_DOMAIN={{.S.AppDomain}}
+      - SSL_DOMAIN={{.S.AppDomain}}
 {{end}}
-        entrypoint: ""
-        command: /lzcapp/pkg/content/startup.sh
-        binds:
-            - /lzcapp/var/storage:/rails/storage
+    entrypoint: ""
+    command: /lzcapp/pkg/content/startup.sh
+    binds:
+      - /lzcapp/var/storage:/rails/storage
