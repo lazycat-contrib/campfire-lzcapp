@@ -1,5 +1,5 @@
 package: lazycat.coummunity.app.once-campfire
-version: 1.4.7
+version: 1.4.8
 name: Campfire
 description: Campfire is web-based chat application
 min_os_version: 1.5.0
