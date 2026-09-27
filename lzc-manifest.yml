@@ -8,8 +8,8 @@ application:
 services:
   once-campfire:
     # ghcr.io/basecamp/once-campfire:v1.4.3
-    # upstream: ghcr.io/basecamp/once-campfire:v1.5.0
-    image: registry.lazycat.cloud/czyt/basecamp/once-campfire:48f3b8da5739fedf
+    # upstream: ghcr.io/basecamp/once-campfire:v1.5.1
+    image: registry.lazycat.cloud/czyt/basecamp/once-campfire:149873844311aa67
     user: root
     environment:
       - SECRET_KEY_BASE={{stable_secret "campfire#secret_key"}}
