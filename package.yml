@@ -1,6 +1,6 @@
 package: lazycat.coummunity.app.once-campfire
 license: MIT
-version: 1.5.4
+version: 1.5.6
 name: Campfire
 description: Campfire is web-based chat application
 min_os_version: 1.5.0
